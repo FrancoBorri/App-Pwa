@@ -13,7 +13,6 @@ services:
       DJANGO_SU_NAME: ${DJANGO_SU_NAME}
       DJANGO_SU_EMAIL: ${DJANGO_SU_EMAIL}
       DJANGO_SU_PASSW: ${DJANGO_SU_PASSWD}
-        
     ports:
       - 8000:8000
     networks:
