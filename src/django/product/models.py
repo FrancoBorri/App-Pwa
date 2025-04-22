@@ -14,23 +14,12 @@ class Product(models.Model):
     stock = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    provider_id = models.IntegerField()
-    category_id = models.ForeignKey('Category', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    provider = models.ForeignKey('provider.Provider', on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'product'
-
-class Price(models.Model):
-    actual_price = models.IntegerField()
-    new_price = models.IntegerField()
-    previous_price = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    product_id = models.ForeignKey('product.Product', on_delete=models.CASCADE)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        db_table = 'price'
 
 
 
